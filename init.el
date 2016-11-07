@@ -391,6 +391,7 @@
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (require 'cc-mode)
+(c-set-offset 'case-label '+)
 (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 (electric-pair-mode 1)
 (setq show-paren-delay 0)
