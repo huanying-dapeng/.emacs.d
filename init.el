@@ -71,6 +71,12 @@
  '(rcirc-default-user-name "SouvikB")
  '(rcirc-server-alist nil)
  '(require-final-newline (quote visit-save))
+ '(safe-local-variable-values
+   (quote
+    ((add-to-list
+      (quote auto-mode-alist)
+      (quote
+       ("\\.h\\'" . c++-mode))))))
  '(scala-indent:step 4)
  '(search-default-mode (quote char-fold-to-regexp))
  '(send-mail-function (quote sendmail-send-it))
