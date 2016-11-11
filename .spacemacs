@@ -351,6 +351,9 @@ you should place your code here."
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 
   (spacemacs/toggle-which-key-off)
+
+  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
   (global-set-key [C-return] [return])
   (global-unset-key [(control z)])
   (global-unset-key [(control x)(control z)])
