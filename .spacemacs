@@ -320,9 +320,23 @@ you should place your code here."
   (require 'helm)
   (global-set-key (kbd "C-x C-i") 'helm-imenu)
 
+  (require 'mouse)
+  (xterm-mouse-mode 1)
+  (global-set-key [mouse-4] '(lambda ()
+                               (interactive)
+                               (scroll-down 1)))
+  (global-set-key [mouse-5] '(lambda ()
+                               (interactive)
+                               (scroll-up 1)))
+  (xterm-mouse-mode t)
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t)
+
   (setq mouse-wheel-scroll-amount '(3 ((shift) . 0.6)))
   (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+  (spacemacs/toggle-which-key-off)
   (global-set-key [C-return] [return])
   (global-unset-key [(control z)])
   (global-unset-key [(control x)(control z)])
@@ -347,8 +361,10 @@ you should place your code here."
     ("32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "b825687675ea2644d1c017f246077cdd725d4326a1c11d84871308573d019f67" "62c80c6889010c3f0656e81ae201754058fd44743076f8dc56c595c2b9b5e298" "cedd3b4295ac0a41ef48376e16b4745c25fa8e7b4f706173083f16d5792bb379" "a56a6bf2ecb2ce4fa79ba636d0a5cf81ad9320a988ec4e55441a16d66b0c10e0" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" "7e376fb329a0e46a04e8285b0e45199a083f98c69b0e1039ec1cb1d366e66e9c" default)))
  '(evil-toggle-key "C-`")
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#20240E")
+ '(fci-rule-color "#20240E" t)
  '(fringe-mode 6 nil (fringe))
+ '(global-spacemacs-leader-override-mode t)
+ '(global-spacemacs-whitespace-cleanup-mode t)
  '(helm-autoresize-max-height 20)
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
  '(highlight-tail-colors
@@ -372,6 +388,8 @@ you should place your code here."
  '(powerline-default-separator (quote bar))
  '(powerline-height 20)
  '(shell-file-name "/bin/bash")
+ '(spaceline-helm-mode t)
+ '(spaceline-info-mode t)
  '(tramp-default-method "ssh")
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -405,4 +423,5 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(mode-line-buffer-id ((t (:inherit bold :foreground "orange2"))))
  '(powerline-active1 ((t (:background "gray39" :foreground "#b2b2b2"))))
- '(powerline-active2 ((t (:background "gray44" :foreground "#b2b2b2")))))
+ '(powerline-active2 ((t (:background "gray44" :foreground "#b2b2b2"))))
+ '(spacemacs-emacs-face ((t (:background "#31423A" :foreground "#222226" :inherit (quote mode-line))))))
