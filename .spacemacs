@@ -385,6 +385,7 @@ you should place your code here."
  '(evil-toggle-key "C-`")
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#20240E" t)
+ '(flycheck-gcc-language-standard "c++1y")
  '(fringe-mode 6 nil (fringe))
  '(global-spacemacs-leader-override-mode t)
  '(global-spacemacs-whitespace-cleanup-mode t)
