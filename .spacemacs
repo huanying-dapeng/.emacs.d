@@ -376,7 +376,7 @@ you should place your code here."
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-term-color-vector
-   [unspecified "#081724" "#ff694d" "#68f6cb" "#fffe4e" "#bad6e2" "#afc0fd" "#d2f1ff" "#d3f9ee"])
+   [unspecified "#081724" "#ff694d" "#68f6cb" "#fffe4e" "#bad6e2" "#afc0fd" "#d2f1ff" "#d3f9ee"] t)
  '(compilation-message-face (quote default))
  '(custom-enabled-themes (quote (moe-dark)))
  '(custom-safe-themes
@@ -412,6 +412,14 @@ you should place your code here."
  '(powerline-default-separator (quote bar))
  '(powerline-height 20)
  '(projectile-keymap-prefix "p")
+ '(safe-local-variable-values
+   (quote
+    ((add-to-list
+      (quote auto-mode-alist)
+      (quote
+       ("\\.h\\'" . c++-mode)))
+     (elixir-enable-compilation-checking . t)
+     (elixir-enable-compilation-checking))))
  '(scroll-margin 10)
  '(shell-file-name "/bin/bash")
  '(spaceline-helm-mode t)
