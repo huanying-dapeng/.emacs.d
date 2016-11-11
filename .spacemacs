@@ -401,6 +401,7 @@ you should place your code here."
  '(pos-tip-foreground-color "#272822")
  '(powerline-default-separator (quote bar))
  '(powerline-height 20)
+ '(scroll-margin 10)
  '(shell-file-name "/bin/bash")
  '(spaceline-helm-mode t)
  '(spaceline-info-mode t)
