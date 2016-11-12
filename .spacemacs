@@ -68,7 +68,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(ag flycheck-google-cpplint)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -327,8 +327,11 @@ you should place your code here."
 
   (require 'cc-mode)
   (c-set-offset 'case-label '+)
+  (c-set-offset 'access-label -1)
 
   (setq latex-enable-auto-fill nil)
+
+  (global-hl-line-mode -1)
 
 
   (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
