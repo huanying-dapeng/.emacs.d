@@ -463,6 +463,11 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(ivy-current-match ((t (:background "color-89" :foreground "#BCBCBC"))))
+ '(magit-diff-added ((t (:background "color-22" :foreground "#BCBCBC"))))
+ '(magit-diff-added-highlight ((t (:background "color-23" :foreground "#A8A8A8"))))
+ '(magit-diff-removed ((t (:background "color-88" :foreground "#BCBCBC"))))
+ '(magit-section-heading ((t (:background "color-24" :foreground "#A8A8A8"))))
  '(mode-line-buffer-id ((t (:inherit bold :foreground "orange2"))))
  '(powerline-active1 ((t (:background "gray39" :foreground "#b2b2b2"))))
  '(powerline-active2 ((t (:background "gray44" :foreground "#b2b2b2"))))
