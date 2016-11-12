@@ -328,6 +328,7 @@ you should place your code here."
   (require 'cc-mode)
   (c-set-offset 'case-label '+)
   (c-set-offset 'access-label -1)
+  (setq auto-mode-alist(cons '("\\.h$"   . c++-mode)  auto-mode-alist))
 
   (setq latex-enable-auto-fill nil)
 
@@ -408,7 +409,7 @@ you should place your code here."
      ("#20240E" . 100))))
  '(inhibit-startup-screen nil)
  '(ivy-height 8)
- '(linum-format " %7d ")
+ '(linum-format " %7d |")
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
