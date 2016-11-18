@@ -472,4 +472,5 @@ you should place your code here."
  '(mode-line-buffer-id ((t (:inherit bold :foreground "orange2"))))
  '(powerline-active1 ((t (:background "gray39" :foreground "#b2b2b2"))))
  '(powerline-active2 ((t (:background "gray44" :foreground "#b2b2b2"))))
+ '(region ((t (:background "#2C5C4C"))))
  '(spacemacs-emacs-face ((t (:background "#31423A" :foreground "#222226" :inherit (quote mode-line))))))
