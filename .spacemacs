@@ -330,6 +330,7 @@ you should place your code here."
   (c-set-offset 'access-label -1)
 
   (setq latex-enable-auto-fill nil)
+  (remove-hook 'LaTeX-mode-hook 'latex/auto-fill-mode)
 
   (global-hl-line-mode -1)
 
