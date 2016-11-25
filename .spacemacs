@@ -328,6 +328,7 @@ you should place your code here."
   (require 'cc-mode)
   (c-set-offset 'case-label '+)
   (c-set-offset 'access-label -1)
+  (setq auto-mode-alist(cons '("\\.h$"   . c++-mode)  auto-mode-alist))
 
   (setq latex-enable-auto-fill nil)
   (remove-hook 'LaTeX-mode-hook 'latex/auto-fill-mode)
@@ -409,7 +410,7 @@ you should place your code here."
      ("#20240E" . 100))))
  '(inhibit-startup-screen nil)
  '(ivy-height 8)
- '(linum-format " %7d ")
+ '(linum-format " %7d |")
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
@@ -464,7 +465,13 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(ivy-current-match ((t (:background "color-89" :foreground "#BCBCBC"))))
+ '(magit-diff-added ((t (:background "color-22" :foreground "#BCBCBC"))))
+ '(magit-diff-added-highlight ((t (:background "color-23" :foreground "#A8A8A8"))))
+ '(magit-diff-removed ((t (:background "color-88" :foreground "#BCBCBC"))))
+ '(magit-section-heading ((t (:background "color-24" :foreground "#A8A8A8"))))
  '(mode-line-buffer-id ((t (:inherit bold :foreground "orange2"))))
  '(powerline-active1 ((t (:background "gray39" :foreground "#b2b2b2"))))
  '(powerline-active2 ((t (:background "gray44" :foreground "#b2b2b2"))))
+ '(region ((t (:background "#2C5C4C"))))
  '(spacemacs-emacs-face ((t (:background "#31423A" :foreground "#222226" :inherit (quote mode-line))))))
