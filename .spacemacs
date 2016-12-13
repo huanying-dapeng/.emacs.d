@@ -320,7 +320,11 @@ you should place your code here."
   (setq powerline-height 20)
   (spaceline-compile)
 
-  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  ;; (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  (setq ivy-re-builders-alist
+        '((ivy-switch-buffer . ivy--regex-plus)
+          (t . ivy--regex-fuzzy)))
+  (setq ivy-initial-inputs-alist nil)
   (require 'recentf)
   (global-set-key (kbd "C-x C-r") 'counsel-recentf)
   (global-set-key (kbd "C-x C-b") 'switch-to-buffer)
