@@ -432,7 +432,8 @@ you should place your code here."
  '(projectile-keymap-prefix "p")
  '(safe-local-variable-values
    (quote
-    ((add-to-list
+    ((TeX-command-extra-options . "-shell-escape")
+     (add-to-list
       (quote auto-mode-alist)
       (quote
        ("\\.h\\'" . c++-mode)))
