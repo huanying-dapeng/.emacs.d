@@ -33,7 +33,7 @@ values."
    '(
      octave
      csv
-     csv
+     rust
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -369,6 +369,8 @@ you should place your code here."
 
   (spacemacs/toggle-which-key-off)
 
+  (setq LaTeX-verbatim-environments-local '("Verbatim" "lstlisting"))
+
   (global-set-key (kbd "M-y") 'counsel-yank-pop)
   (global-set-key (kbd "C-s") 'isearch-forward)
 
@@ -386,6 +388,7 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(LaTeX-item-indent 0)
+ '(LaTeX-verbatim-environments (quote ("verbatim" "verbatim*" "lstlisting")))
  '(ansi-color-faces-vector
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
