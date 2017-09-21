@@ -480,4 +480,5 @@ you should place your code here."
  '(ivy-cursor ((t (:background "gray60" :foreground "white"))))
  '(powerline-active1 ((t (:background "gray39" :foreground "#b2b2b2"))))
  '(powerline-active2 ((t (:background "gray44" :foreground "#b2b2b2"))))
+ '(region ((t (:background "selectedMenuItemColor"))))
  '(spacemacs-emacs-face ((t (:background "#31423A" :foreground "#222226" :inherit (quote mode-line))))))
