@@ -363,6 +363,11 @@ you should place your code here."
   (defun track-mouse (e))
   (setq mouse-sel-mode t)
 
+  (setq backup-directory-alist
+        `((".*" . ,temporary-file-directory)))
+  (setq auto-save-file-name-transforms
+        `((".*" ,temporary-file-directory t)))
+
   (setq mouse-wheel-scroll-amount '(3 ((shift) . 0.6)))
   (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
@@ -379,6 +384,7 @@ you should place your code here."
   (global-unset-key [(control z)])
   (global-unset-key [(control x)(control z)])
   (global-set-key [(control z)] 'undo)
+  (with-eval-after-load 'org (org-defkey org-mode-map [(meta return)] 'org-meta-return))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
