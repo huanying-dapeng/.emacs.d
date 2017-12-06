@@ -320,8 +320,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (spaceline-toggle-purpose-off)
   (setq powerline-default-separator (quote bar))
-  (setq powerline-height 20)
+  (setq powerline-height 30)
   (spaceline-compile)
 
   ;; (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
@@ -385,6 +386,14 @@ you should place your code here."
   (global-unset-key [(control x)(control z)])
   (global-set-key [(control z)] 'undo)
   (with-eval-after-load 'org (org-defkey org-mode-map [(meta return)] 'org-meta-return))
+  (defadvice yes-or-no-p (around prevent-dialog activate)
+    "Prevent yes-or-no-p from activating a dialog"
+    (let ((use-dialog-box nil))
+      ad-do-it))
+  (defadvice y-or-n-p (around prevent-dialog-yorn activate)
+    "Prevent y-or-n-p from activating a dialog"
+    (let ((use-dialog-box nil))
+      ad-do-it))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -407,7 +416,7 @@ you should place your code here."
  '(custom-enabled-themes (quote (kaolin)))
  '(custom-safe-themes
    (quote
-    ("191a0b83e410ff9f7be7dbb158a0bb8fce32211167919a6ab5f414a906df4d7d" "3a5f04a517096b08b08ef39db6d12bd55c04ed3d43b344cf8bd855bde6d3a1ae" "ba6f8606cae826654d4c2242363f2042dd35c1595ef6367ad44d5f42851e6aa9" "32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "b825687675ea2644d1c017f246077cdd725d4326a1c11d84871308573d019f67" "62c80c6889010c3f0656e81ae201754058fd44743076f8dc56c595c2b9b5e298" "cedd3b4295ac0a41ef48376e16b4745c25fa8e7b4f706173083f16d5792bb379" "a56a6bf2ecb2ce4fa79ba636d0a5cf81ad9320a988ec4e55441a16d66b0c10e0" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" "7e376fb329a0e46a04e8285b0e45199a083f98c69b0e1039ec1cb1d366e66e9c" default)))
+    ("d6922c974e8a78378eacb01414183ce32bc8dbf2de78aabcc6ad8172547cb074" "0c387e27a3dd040b33c6711ff92e13bd952369a788eee97e4e4ea2335ac5528f" "3632cf223c62cb7da121be0ed641a2243f7ec0130178722554e613c9ab3131de" "17cda1304ba8d26d62bf247cab2c161d12957054b6be4477abb5972a74eea4e1" "191a0b83e410ff9f7be7dbb158a0bb8fce32211167919a6ab5f414a906df4d7d" "3a5f04a517096b08b08ef39db6d12bd55c04ed3d43b344cf8bd855bde6d3a1ae" "ba6f8606cae826654d4c2242363f2042dd35c1595ef6367ad44d5f42851e6aa9" "32e3693cd7610599c59997fee36a68e7dd34f21db312a13ff8c7e738675b6dfc" "a800120841da457aa2f86b98fb9fd8df8ba682cebde033d7dbf8077c1b7d677a" "b825687675ea2644d1c017f246077cdd725d4326a1c11d84871308573d019f67" "62c80c6889010c3f0656e81ae201754058fd44743076f8dc56c595c2b9b5e298" "cedd3b4295ac0a41ef48376e16b4745c25fa8e7b4f706173083f16d5792bb379" "a56a6bf2ecb2ce4fa79ba636d0a5cf81ad9320a988ec4e55441a16d66b0c10e0" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" "7e376fb329a0e46a04e8285b0e45199a083f98c69b0e1039ec1cb1d366e66e9c" default)))
  '(evil-escape-key-sequence "0000000````")
  '(evil-toggle-key "C-`")
  '(evil-want-Y-yank-to-eol nil)
@@ -418,6 +427,9 @@ you should place your code here."
  '(global-spacemacs-whitespace-cleanup-mode t)
  '(helm-autoresize-max-height 20)
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+ '(highlight-symbol-colors
+   (quote
+    ("#EFFF00" "#73CD4F" "#83DDFF" "MediumPurple1" "#66CDAA" "DarkOrange" "HotPink1" "#809FFF" "#ADFF2F")))
  '(highlight-tail-colors
    (quote
     (("#20240E" . 0)
@@ -428,15 +440,22 @@ you should place your code here."
      ("#A75B00" . 70)
      ("#F309DF" . 85)
      ("#20240E" . 100))))
+ '(hl-paren-background-colors
+   (quote
+    ("#00FF99" "#CCFF99" "#FFCC99" "#FF9999" "#FF99CC" "#CC99FF" "#9999FF" "#99CCFF" "#99FFCC" "#7FFF00")))
+ '(hl-paren-colors (quote ("#326B6B")))
  '(inhibit-startup-screen nil)
  '(ivy-height 8)
  '(linum-format " %7d |")
  '(magit-diff-use-overlays nil)
+ '(org-src-block-faces (quote (("emacs-lisp" (:background "#F0FFF0")))))
  '(package-selected-packages
    (quote
     (nix-mode toml-mode racer flycheck-rust seq cargo rust-mode kaolin-theme csv-mode auctex-latexmk powerline spinner hydra parent-mode helm helm-core flx smartparens iedit anzu evil goto-chg undo-tree highlight diminish autothemer projectile bind-map bind-key packed async f pkg-info epl s dash avy popup package-build ag flycheck-google-cpplint counsel swiper ivy yapfify x86-lookup web-mode web-beautify tagedit slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements ob-elixir nasm-mode mmm-mode markdown-toc markdown-mode livid-mode skewer-mode simple-httpd live-py-mode less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc intero hy-mode hlint-refactor hindent helm-pydoc helm-hoogle helm-css-scss haskell-snippets haml-mode gh-md flycheck-mix flycheck-haskell erlang emmet-mode disaster cython-mode company-web web-completion-data company-tern dash-functional tern company-ghci company-ghc ghc haskell-mode company-emacs-eclim eclim company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode cmake-mode clang-format auctex anaconda-mode pythonic alchemist elixir-mode zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme firebelly-theme farmhouse-theme espresso-theme dracula-theme django-theme darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme smeargle orgit org-projectile pcache org-present org org-pomodoro alert log4e gntp org-download mwim magit-gitflow htmlize helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ace-jump-helm-line ac-ispell auto-complete ws-butler window-numbering which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline smex restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word counsel-projectile column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
+ '(powerline-color1 "#3d3d68")
+ '(powerline-color2 "#292945")
  '(powerline-default-separator (quote bar))
  '(powerline-height 20)
  '(projectile-keymap-prefix "p")
